@@ -3,12 +3,10 @@
 /**
  * _strstr - Finds the first occurrence of the substring.
  *
- * needle in the string haystack.
  * @haystack: The entire string.
  * @needle: The substring.
  *
- * Return: Pointer to the beginning of located substring or
- * NULL if the substring is not found.
+ * Return: Pointer to the beginning of located substring or NULL if the substring is not found.
 */
 char *_strstr(char *haystack, char *needle)
 {
