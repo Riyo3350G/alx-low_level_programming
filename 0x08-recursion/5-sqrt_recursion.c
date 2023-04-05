@@ -12,7 +12,7 @@ int sqrt1(int a, int b)
                 return (b);
         else if (b * b > a)
                 return (-1);
-        return (_sqrt(a, b + 1));
+        return (sqrt1(a, b + 1));
 }
 
 /**
