@@ -8,16 +8,16 @@
  */
 int _sqrt_recursion(int n)
 {
-	return (_sqrt(n, 1));
+	return (sqrt1(n, 1));
 }
 
 /**
- * _sqrt - Makes possible to evaluate from 1 to n
+ * sqrt1 - Makes possible to evaluate from 1 to n
  * @a: same number as n
  * @b: number that iterates from 1 to n
  *
  */
-int _sqrt(int a, int b)
+int sqrt1(int a, int b)
 {
         if (b * b == a)
                 return (b);
