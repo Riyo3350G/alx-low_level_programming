@@ -20,7 +20,7 @@ int sqrt1(int a, int b)
  * _sqrt_recursion - returns the natural square root of n
  * @n: integer
  *
- * Return: square root of n. 
+ * Return: square root of n.
  */
 int _sqrt_recursion(int n)
 {
