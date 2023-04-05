@@ -5,7 +5,7 @@
  * @a: same number as n
  * @b: number that iterates from 1 to n
  *
- * Return : integer.
+ * Return: integer.
  */
 int prime2(int a, int b)
 {
