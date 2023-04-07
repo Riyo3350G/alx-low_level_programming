@@ -1,56 +1,74 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include "main.h"
 
 /**
- * main - Main Entry
- * @argc: input
- * @argv: input
- * Return: Always 0 (success)
-**/
-int main(int argc, char *argv[])
+ * _isnumber - checks if string is a number
+ * @s: string
+ *
+ * Return: On success 1.
+ * If not a number, 0 is returned.
+ */
+int _isnumber(char *s)
 {
-	int cents, coins = 0;
+	int i, check, d;
 
+	i = 0, d = 0, check = 1;
+	if (*s == '-')
+		i++;
+	for (; *(s + i) != 0; i++)
+	{
+		d = isdigit(*(s + i));
+		if (d == 0)
+		{
+			check = 0;
+			break;
+		}
+	}
+	return (check);
+}
+/**
+ * main - Entry point
+ *
+ * @argc: Counts the number of parameters that go into main
+ * @argv: Pointer of array of pointers containing strings entering main
+ * Return: Always 0 (Success)
+ */
+int main(int argc, char **argv)
+{
+	int j, ex, coins, cents, d;
+	int c[5] = {25, 10, 5, 2, 1};
+
+	ex = 1, j = 0, coins = 0;
 	if (argc == 2)
 	{
-		cents = atoi(*(argv + 1));
-		while (cents > 0)
+		if (_isnumber(argv[1]))
 		{
-			if (cents % 25 < cents)
+			ex = 0, cents = atoi(argv[1]);
+			if (cents >= 0)
 			{
-				cents -= 25;
-				coins++;
-			}
-			else if (cents % 10 < cents)
-			{
-				cents -= 10;
-				coins++;
-			}
-			else if (cents % 5 < cents)
-			{
-				cents -= 5;
-				coins++;
-			}
-			else if (cents % 2 < cents)
-			{
-				cents -= 2;
-				coins++;
-			}
-			else if (cents % 1 < cents)
-			{
-				cents -= 1;
-				coins++;
+				while (cents != 0)
+				{
+					d = cents / c[j];
+					if (d == 0)
+					{
+						j++;
+					}
+					else
+					{
+						coins += d;
+						cents -= (d * c[j]);
+					}
+				}
 			}
 		}
 	}
+	if (ex == 0)
+		printf("%i\n", coins);
 	else
-	{
-		printf("Error\n");
-		return (1);
-	}
-	printf("%d\n", coins);
-	return (0);
+		printf("%s\n", "Error");
+	return (ex);
 }
 
 
