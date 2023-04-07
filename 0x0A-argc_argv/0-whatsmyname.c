@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include "main.h"
+
 /**
  * main - is a function that prints the name of the file
  * @argc: is an argument counter for char
