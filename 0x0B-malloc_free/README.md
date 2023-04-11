@@ -2,9 +2,9 @@
 Project done during Full Stack Software Engineering studies at ALX. It aims to learn about automatic and dynamic allocation in C language.
 
 ## Technologies
-C files are compiled using gcc
-C files are written according to the C90 standard
-Tested on Ubuntu
+* C files are compiled using gcc
+* C files are written according to the C90 standard
+* Tested on Ubuntu
 ## Files
 All of the following files are programs written in C:
 
