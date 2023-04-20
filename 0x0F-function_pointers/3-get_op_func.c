@@ -23,6 +23,7 @@ int (*get_op_func(char *s))(int, int)
 
 	int a;
 	a = 0;
+	
 	while (ops[a].op != NULL && s[1] == '\0')
 	{
 		if (ops[a].op[0] == *s)
@@ -31,5 +32,4 @@ int (*get_op_func(char *s))(int, int)
 	}
 
 	return (NULL);
-
 }
