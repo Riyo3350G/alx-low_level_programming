@@ -4,6 +4,14 @@
 
 #define ARGV(X, S) (argv[X][0] == S)
 
+/**
+ * main - Entry Point, perform a calulaction base on 2 numbers and
+ * the given operator.
+ * @argc: Number of agruments
+ * @argv: The string value of the arguments.
+ *
+ * Return: 0 (On Sucess)
+ */
 int main(int argc, char *argv[])
 {
 	int num1, num2;
