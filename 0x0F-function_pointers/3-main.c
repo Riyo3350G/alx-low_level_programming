@@ -26,8 +26,11 @@ int main(int argc, char *argv[])
         num2 = atoi(argv[3]);
         op = argv[2];
 
-        (ARGV(2, '/') || ARGV(2, '%')) && num2 == 0 ? 
-            printf("Error\n"), exit(100) : 0;
+        if ((ARGV(2, '/') || ARGV(2, '%')) && num2 == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
 
         !(get_op_func(op)) ? printf("Error\n"), exit(99) : 0;
 
