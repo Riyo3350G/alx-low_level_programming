@@ -5,12 +5,12 @@
 #define ARGV(X, S) (argv[X][0] == S)
 
 /**
- * main - Entry Point, perform a calculation based on 2 numbers and
+ * main - Entry point. Perform a calculation based on 2 numbers and
  *        the given operator.
- * @argc: Number of arguments
+ * @argc: Number of arguments.
  * @argv: The string value of the arguments.
  *
- * Return: 0 (On Success)
+ * Return: 0 (On success).
  */
 int main(int argc, char *argv[])
 {
