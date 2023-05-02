@@ -8,36 +8,23 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *turtle = head, *rabbit = head;
 	size_t ctr = 0;
+	const listint_t *fs, *nx;
 
-	if (head == NULL || head->next == NULL)
+	fs = head;
+	while (fs != NULL)
 	{
-		exit(98);
-	}
-
-	while (turtle != NULL && rabbit != NULL && rabbit->next != NULL)
-	{
-		turtle = turtle->next;
-		rabbit = rabbit->next->next;
-
-		if (turtle == rabbit)
-		{
-			printf("[%p] %d\n", (void *)turtle, turtle->n);
-			ctr++;
-			while (turtle != rabbit->next)
-			{
-				printf("[%p] %d\n", (void *)turtle, turtle->n);
-				ctr++;
-				turtle = turtle->next;
-			}
-			return (ctr);
-		}
-
-		printf("[%p] %d\n", (void *)turtle, turtle->n);
 		ctr++;
+		printf("[%p] %d\n", (void *)fs, fs->n);
+		nx = fs->nx;
+		
+		if (nx >= fs)
+		{
+			printf("-> [%p] %d\n", (void *)nx, nx->n);
+			exit(98);
+		}
+		fs = nx;
 	}
-
+	
 	return (ctr);
 }
-
