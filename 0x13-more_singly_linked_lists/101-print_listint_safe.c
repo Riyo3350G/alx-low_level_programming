@@ -13,7 +13,7 @@ size_t print_listint_safe(const listint_t *head)
 
 	if (head == NULL || head->next == NULL)
 	{
-		return (0);
+		exit (98);
 	}
 
 	while (turtle != NULL && rabbit != NULL && rabbit->next != NULL)
