@@ -33,6 +33,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (rd == -1)
 	{
+		close(op);
 		free(buff);
 		return (0);
 	}
@@ -47,6 +48,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	
 	close(op);
 	free(buff);
-	return (rd);
+	return (wr);
 
 }
