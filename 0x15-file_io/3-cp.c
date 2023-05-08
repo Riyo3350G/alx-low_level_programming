@@ -9,34 +9,38 @@
  */
 int main(int argc, char *argv[])
 {
-	int op_from, op_dest, rd, wr;
+	int op_from, op_dest, from, dest;
+	ssize_t rd, wr;
 	char buff[BUFSIZE];
 
 	if (argc != 3)
-		errors(97, "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
+
 	op_from = open(argv[1], O_RDONLY);
 	if (op_from == -1)
-		errors(98, "Error: Can't read from file");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 
 	op_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (op_dest == -1)
-		errors(99, "Error: Can't write to file");
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 
 	while ((rd = read(op_from, buff, BUFSIZE)) > 0)
 	{
 		wr = write(op_dest, buff, rd);
-		if (wr == -1)
-			errors(99, "Error: Can't write to file");
+		if (wr != rd || wr == -1)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 
 	if (rd == -1)
-		errors(98, "Error: Can't read from file");
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 
-	if (close(op_from) == -1)
-		errors(100, "Error: Can't close file descriptor");
+	from = close(op_from);
+	if (from == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", op_from), exit(100);
 
-	if (close(op_dest) == -1)
-		errors(100, "Error: Can't close file descriptor");
+	dest = close(op_dest);
+	if (dest == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", op_dest), exit(100);
 
 	return (0);
 }
