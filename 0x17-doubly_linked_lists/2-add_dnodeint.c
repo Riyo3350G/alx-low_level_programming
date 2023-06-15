@@ -6,7 +6,7 @@
  * @n: The integer for the new node to data.
  *
  * Return: The address of the new element, or NULL if it failed.
- */i
+ */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *n_node;
