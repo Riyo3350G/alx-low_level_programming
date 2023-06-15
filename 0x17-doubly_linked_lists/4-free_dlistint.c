@@ -5,7 +5,7 @@
  * @head: Pointer to the head of dlistint_s list.
  *
  * Return: void
- * */
+ */
 void free_dlistint(dlistint_t *head)
 {
 	dlistint_t *freed;
