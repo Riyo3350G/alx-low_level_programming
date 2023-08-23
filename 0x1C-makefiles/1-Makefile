@@ -1,0 +1,9 @@
+# The compliler
+CC = gcc
+
+# The source files
+SRC = main.c school.c
+
+# Default rule to build the executable
+all: $(SRC)
+	$(CC) $(SRC) -o school
