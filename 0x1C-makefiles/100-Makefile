@@ -1,34 +1,20 @@
-# The compiler to be used
 CC = gcc
-
-# The .c files
 SRC = main.c school.c
-
-# The .o files
 OBJ = $(SRC:.c=.o)
-
-# The name of the executable
 NAME = school
-
-#  favorite compiler flags: -Wall -Werror -Wextra -pedantic
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 .PHONY: all clean oclean fclean re
 
-# The rule builds your executable
-all : m.h $(OBJ)
-        $(CC) $(OBJ) -o $(NAME)
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-# Deletes all Emacs and Vim temporary files along with the executable
 clean:
-        $(RM) *~ $(NAME)
+	$(RM) *~ $(NAME)
 
-# Deletes the object files
 oclean:
-        $(RM) $(OBJ)
+	$(RM) $(OBJ)
 
-# Deletes all Emacs and Vim temporary files, the executable, and the object files
 fclean: clean oclean
 
-# Forces recompilation of all source files
 re: fclean all
