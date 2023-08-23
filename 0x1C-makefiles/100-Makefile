@@ -23,15 +23,15 @@ all : m.h $(OBJ)
         $(CC) $(OBJ) -o $(NAME)
 
 # Deletes all Emacs and Vim temporary files along with the executable
-clean :
+clean:
         $(RM) *~ $(NAME)
 
 # Deletes the object files
-oclean :
+oclean:
         $(RM) $(OBJ)
 
 # Deletes all Emacs and Vim temporary files, the executable, and the object files
-fclean : clean oclean
+fclean: clean oclean
 
 # Forces recompilation of all source files
-re : fclean all
+re: fclean all
