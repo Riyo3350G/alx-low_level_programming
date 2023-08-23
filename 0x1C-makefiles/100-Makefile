@@ -16,8 +16,6 @@ RM = rm -f
 #  favorite compiler flags: -Wall -Werror -Wextra -pedantic
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-.PHONY : all clean oclean fclean re
-
 # The rule builds your executable
 all : $(OBJ)
         $(CC) $(OBJ) -o $(NAME)
@@ -35,3 +33,5 @@ fclean : clean oclean
 
 # Forces recompilation of all source files
 re : oclean all
+
+.PHONY : all clean oclean fclean re
