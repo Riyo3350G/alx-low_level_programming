@@ -35,12 +35,12 @@ int rec_binary_search(int *array, size_t size, int value)
 		if (mid > 0)
 			return (rec_binary_search(array, mid + 1, value));
 		else
-			return (mid);
+			return ((int)mid);
 	}
 
 	if (value < array[mid])
 	{
-		return (rec_binary_search(array, mid, value));
+		return (rec_binary_search(array, mid + 1, value));
 	}
 	else
 	{
