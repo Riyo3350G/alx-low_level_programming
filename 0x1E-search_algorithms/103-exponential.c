@@ -1,43 +1,37 @@
 #include "search_algos.h"
 
-/**
- * _binary_search - searches for a value in an array of integers
- * using the Binary search algo
- * @array: pointer to the first element of the array
- * @l: leftmost index
- * @r: rightmost index
- * @value: value to search for int the array
- *
- * Return: first idx of the value or -1 if value is not found
- */
 int _binary_search(int *array, size_t left, size_t right, int value)
 {
-	size_t mid, idx;
+	size_t idx;
 
 	if (!array)
 		return (-1);
 
-	while (left <= right)
+	for (; left <= right;)
 	{
 		printf("Searching in array: ");
 		for (idx = left; idx <= right; idx++)
 		{
-			printf("%d", array[idx]);
-			if (idx < right)
-				printf(", ");
+			if (idx != right)
+			{
+				printf("%d, ", array[idx]);
+			}
+			else
+			{
+				printf("%d", array[idx]);
+			}
+			/* printf("%d, ", array[idx]); */
 		}
 		printf("\n");
-
-		mid = (left + right) / 2;
-
-		if (array[mid] == value)
-			return (mid);
-		else if (array[mid] < value)
-			left = mid + 1;
+		/* printf("%d\n", array[idx]); */
+		idx = left + (right - left) / 2;
+		if (array[idx] == value)
+			return (idx);
+		else if (array[idx] < value)
+			left = idx + 1;
 		else
-			right = mid - 1;
+			right = idx - 1;
 	}
-
 	return (-1);
 }
 /**
@@ -51,17 +45,22 @@ int _binary_search(int *array, size_t left, size_t right, int value)
  */
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t idx, bound;
+	size_t idx;
 
 	if (!array)
 		return (-1);
 
-	for (idx = 1; idx < size && array[idx] < value; idx *= 2)
+	if (array[0] == value)
+		return (0);
+
+	for (idx = 1; idx < size && array[idx] <= value; idx *= 2)
+	{
 		printf("Value checked array[%ld] = [%d]\n", idx, array[idx]);
+	}
 
-	bound = idx < size - 1 ? idx : size - 1;
+	printf("Value found between indexes [%ld] and [%ld]\n", idx / 2, idx);
 
-	printf("Value found between indexes [%ld] and [%ld]\n", idx / 2, bound);
-
-	return (_binary_search(array, idx / 2, bound, value));
+	if (idx >= size)
+		idx = size - 1;
+	return (_binary_search(array, idx / 2, idx, value));
 }
