@@ -1,4 +1,13 @@
 #include "search_algos.h"
+/**
+ * rec_binary_search - searches for a value in an array of integers
+ * using the Binary search algo
+ * @array: pointer to the first element of the array
+ * @size: size of the array (number of elements)
+ * @value: value to search for int the array
+ *
+ * Return: first idx of the value or -1 if value is not found
+ */
 int rec_binary_search(int *array, size_t size, int value)
 {
 	size_t mid = size / 2;
