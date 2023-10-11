@@ -13,10 +13,10 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	size_t steps, idx;
 	listint_t *node, *jump_node;
 
-	if (!list)
+	if (!list || size == 0)
 		return (NULL);
 
-	steps = (size_t)sqrt((double)size);
+	steps = sqrt(size);
 	idx = 0;
 
 	for (node = jump_node = list;
@@ -42,7 +42,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		printf("Value checked at index [%d] = [%d]\n", (int)node->index, node->n);
 
 	}
-
+	printf("Value checked at index [%d] = [%d]\n", (int)node->index, node->n);
 	if (node->n == value)
 	{
 		/* printf("end1\n"); */
